@@ -5,16 +5,13 @@ function open{
     param($filename)
     IF($null -eq $filename){
         D:\program\MicrosoftVSCode\Code.exe .
-        'Open '+$PSScriptRoot+' with VS code'
+        return
     }
-    ELSEIF(Test-Path $filename){
-        D:\program\MicrosoftVSCode\Code.exe $filename
-        'Open '+$filename+' with VS code'
-    }ELSE{
-        New-Object $filename
-        D:\program\MicrosoftVSCode\Code.exe $filename
-        'Open '+$filename+' with VS code'
-    } 
+    ELSEIF(-not (Test-Path $filename)){
+        New-Item $filename
+    }
+    D:\program\MicrosoftVSCode\Code.exe $filename
 }
 
 open $filename > $null
+'Open with VS code'
