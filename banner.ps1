@@ -30,4 +30,4 @@ $outobject | Format-List *
 
 ===========================================================
 `n
-"@
+"@ | Write-Host -ForegroundColor Yellow
