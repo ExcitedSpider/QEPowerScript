@@ -1,0 +1,1 @@
+ipconfig | Select-String -Pattern "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"
