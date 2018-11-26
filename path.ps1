@@ -2,17 +2,19 @@
 .SYNOPSIS
     Handle env:path in current powershell session.
 .DESCRIPTION
-    Handle env:path in current powershell session. Can get, put and delete value
+    Handle env:path in current powershell session. Can get, put and delete value.
 .EXAMPLE
     PS C:\> path *java*
     PS C:\> path -get *java*
-    get the path like C:\java and D:\java8
+    Get the path like C:\java and D:\java8.
 
     PS C:\> path -put C:\java
-    put C:\java into path
+    Put C:\java into path.
 
     PS C:\> path -del *java*
-    del the path like C:\java and D:\java8
+    Del the path like C:\java and D:\java8.
+.NOTES
+    Author:QE.
 #>
 
 [CmdletBinding(DefaultParameterSetName="GET")]
