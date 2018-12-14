@@ -6,6 +6,7 @@ if(-not(Test-Path $dir))
   return
 }
 
+'please wait...'
 $length=0
 Get-ChildItem $dir -Recurse | ForEach-Object {
   if(-not $_.PSIsContainer)
@@ -13,13 +14,13 @@ Get-ChildItem $dir -Recurse | ForEach-Object {
   $length+=$_.Length
   }
 }
-'please wait...'
-'The length: ' | Write-Host -NoNewline
+
+'The length of {0}: ' -f ($dir) | Write-Host -NoNewline
 if($length -lt 1MB){
-  '{0}KB' -f ($length)
+  '{0:N2}KB' -f ($length)
 }elseif ($length -lt 1GB) {
-  '{0}MB' -f ($length/1MB)
+  '{0:N2}MB' -f ($length/1MB)
 }else
 {
-  '{0}GB' -f ($length/1GB)
+  '{0:N2}}GB' -f ($length/1GB)
 }
